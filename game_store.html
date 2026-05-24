@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameVault Store</title>
+    <style>
+        /* Estilos generales para armonía visual */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        a { color: #4db8ff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        
+        /* Navegación */
+        #nav nav {
+            background-color: #1a1a1a;
+            padding: 10px;
+            border-bottom: 2px solid #333;
+        }
+        #nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+        #nav ul li { position: relative; }
+        /* Submenú */
+        #nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #2a2a2a;
+            flex-direction: column;
+            gap: 0;
+            min-width: 150px;
+            z-index: 100;
+        }
+        #nav ul li:hover ul { display: flex; }
+        #nav ul li ul li { padding: 10px; border-bottom: 1px solid #444; }
+        
+        /* Layout principal */
+        .layout {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+        #main-content { flex: 3; min-width: 300px; }
+        #sidebar { flex: 1; min-width: 250px; background: #1f1f1f; padding: 20px; border-radius: 8px; }
+        
+        /* Catálogo y Tarjetas */
+        #catalogo {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .product-card {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+        .product-card img { max-width: 100%; border-radius: 5px; }
+        .product-card button {
+            background: #4db8ff; color: #000; border: none;
+            padding: 10px 15px; cursor: pointer; border-radius: 4px; font-weight: bold;
+        }
+        
+        /* Tablas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #2a2a2a;
+        }
+        th, td { border: 1px solid #444; padding: 10px; text-align: left; }
+        th { background-color: #333; color: #fff; }
+        
+        /* Iframes */
+        .iframe-container { display: flex; gap: 10px; margin-top: 20px; }
+        .iframe-panel { flex: 1; height: 300px; border: 2px solid #444; }
+        
+        /* Utilidades */
+        .clear { clear: both; }
+        .zoom-img:hover { transform: scale(1.8); position: relative; z-index: 10; box-shadow: 0 0 10px rgba(0,0,0,0.8); }
+        #footer { background: #1a1a1a; text-align: center; padding: 20px; margin-top: 40px; border-top: 1px solid #333; }
+    </style>
+</head>
+<body bgcolor="#121212">
+
+    <!-- CABECERA -->
+    <div id="header" style="padding: 20px; background: #0a0a0a; border-bottom: 2px solid #333;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/SNES_Controller.svg/120px-SNES_Controller.svg.png" align="left" alt="Logo de GameVault Store" style="margin-right: 20px;">
+        <h1 style="margin: 0; color: #4db8ff;">GameVault Store</h1>
+        <p style="margin: 5px 0 0 0;">Tu destino definitivo para encontrar los mejores videojuegos. Disfruta de un catálogo inmenso, ofertas inigualables y la comunidad gamer más grande. Explora nuestras novedades y adéntrate en el mundo del entretenimiento interactivo.</p>
+        <div class="clear"></div>
+    </div>
+
+    <!-- NAVEGACIÓN -->
+    <div id="nav">
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#catalogo">Catálogo</a>
+                    <ul>
+                        <li><a href="#accion">Acción</a></li>
+                        <li><a href="#rpg">RPG</a></li>
+                        <li><a href="#deportes">Deportes</a></li>
+                        <li><a href="#estrategia">Estrategia</a></li>
+                    </ul>
+                </li>
+                <li><a href="#novedades">Novedades</a></li>
+                <li><a href="#ofertas">Ofertas</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="layout">
+        <!-- CONTENIDO PRINCIPAL -->
+        <div id="main-content">
+            
+            <h2 id="inicio">Catálogo Destacado (Imágenes clicables y Zoom)</h2>
+            <div id="catalogo">
+                <div class="product-card">
+                    <a href="https://es.wikipedia.org/wiki/God_of_War_Ragnar%C3%B6k" target="_blank">
+                        <img src="https://juegosdigitalescolombia.com/files/images/productos/1764614630-god-of-war-ragnarok-deluxe-edition-ps5-0.webp" alt="Portada del juego God of War Ragnarok" width="120" style="transition: transform 0.3s;" class="zoom-img">
+                    </a>
+                    <h3>God of War</h3>
+                    <p>$59.99</p>
+                    <button>Comprar</button>
+                </div>
+                <div class="product-card">
+                    <a href="https://es.wikipedia.org/wiki/Elden_Ring" target="_blank">
+                        <img src="https://juegosdigitalescolombia.com/files/images/productos/1632344629-elden-ring-ps4-pre-orden.jpg" alt="Portada del juego Elden Ring" width="120" style="transition: transform 0.3s;" class="zoom-img">
+                    </a>
+                    <h3>Elden Ring</h3>
+                    <p>$49.99</p>
+                    <button>Comprar</button>
+                </div>
+                <div class="product-card">
+                    <a href="https://es.wikipedia.org/wiki/Cyberpunk_2077" target="_blank">
+                        <img src="https://juegosdigitalescolombia.com/files/images/productos/1730415577-cyberpunk-2077-ps5-0.webp" alt="Portada del juego Cyberpunk 2077" width="120" style="transition: transform 0.3s;" class="zoom-img">
+                    </a>
+                    <h3>Cyberpunk 2077</h3>
+                    <p>$29.99</p>
+                    <button>Comprar</button>
+                </div>
+                <div class="product-card">
+                    <a href="https://es.wikipedia.org/wiki/Halo_Infinite" target="_blank">
+                        <img src="https://www.gamereactor.es/media/85/stunningboxarthalo_2868563.png" alt="Portada de Halo Infinite" width="120" style="transition: transform 0.3s;" class="zoom-img">
+                    </a>
+                    <h3>Halo Infinite</h3>
+                    <p>$39.99</p>
+                    <button>Comprar</button>
+                </div>
+                <div class="product-card">
+                    <a href="https://es.wikipedia.org/wiki/Minecraft" target="_blank">
+                        <img src="https://juegosdigitalescolombia.com/files/images/productos/1721848651-minecraft-xbox-series-xs-0.webp" alt="Logo de Minecraft" width="120" style="transition: transform 0.3s;" class="zoom-img">
+                    </a>
+                    <h3>Minecraft</h3>
+                    <p>$19.99</p>
+                    <button>Comprar</button>
+                </div>
+                <div class="product-card">
+                    <a href="https://es.wikipedia.org/wiki/The_Legend_of_Zelda:_Breath_of_the_Wild" target="_blank">
+                        <img src="https://uvejuegos.com/img/caratulas/56704/tloz-breath-of-the-wild-eur.jpg" alt="Logo de Zelda Breath of the Wild" width="120" style="transition: transform 0.3s;" class="zoom-img">
+                    </a>
+                    <h3>Zelda BOTW</h3>
+                    <p>$59.99</p>
+                    <button>Comprar</button>
+                </div>
+            </div>
+
+            <hr style="border-color:#333; margin: 40px 0;">
+
+            <h2>Demostración de Atributos ALIGN en Imágenes</h2>
+            <div style="background: #222; padding: 15px; border-radius: 8px;">
+                <p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Gamepad.svg/50px-Gamepad.svg.png" align="top" alt="Icono de mando top"> 
+                    Este texto está alineado usando <strong>align="top"</strong> con respecto a la imagen del mando. El texto se posiciona en la parte superior del gráfico.
+                </p>
+                <p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Gamepad.svg/50px-Gamepad.svg.png" align="middle" alt="Icono de mando middle"> 
+                    Este texto está alineado usando <strong>align="middle"</strong>. La línea base del texto se alinea con el centro vertical de la imagen.
+                </p>
+                <div style="min-height: 80px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Gamepad.svg/50px-Gamepad.svg.png" align="left" alt="Icono de mando left" style="margin-right: 15px;"> 
+                    Este bloque utiliza <strong>align="left"</strong>. La imagen flota a la izquierda y el texto descriptivo fluye suavemente alrededor de ella por la derecha, optimizando el espacio visual en párrafos largos.
+                    <div class="clear"></div>
+                </div>
+                <div style="min-height: 80px; margin-top: 10px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Gamepad.svg/50px-Gamepad.svg.png" align="right" alt="Icono de mando right" style="margin-left: 15px;"> 
+                    Este bloque utiliza <strong>align="right"</strong>. La imagen se posiciona en el margen derecho y el texto envuelve la imagen por la parte izquierda. Ideal para alternar el ritmo visual de lectura.
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+            <hr style="border-color:#333; margin: 40px 0;">
+
+            <h2>Mapa de Zonas (Image Map)</h2>
+            <p>Haz clic en los diferentes botones del mando para navegar a géneros (Izquierda = Acción, Derecha = RPG, Centro = Deportes):</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/SNES_Controller.svg/400px-SNES_Controller.svg.png" usemap="#mapa-generos" alt="Mapa interactivo de géneros de videojuegos">
+            <map name="mapa-generos">
+                <!-- Cruceta izquierda -->
+                <area shape="rect" coords="40,90,110,160" href="#accion" alt="Sección de Acción">
+                <!-- Botones derechos -->
+                <area shape="circle" coords="310,130,40" href="#rpg" alt="Sección de RPG">
+                <!-- Botones centrales -->
+                <area shape="rect" coords="150,110,220,150" href="#deportes" alt="Sección de Deportes">
+            </map>
+
+            <hr style="border-color:#333; margin: 40px 0;">
+
+            <h2>Comparativa de Consolas de Nueva Generación</h2>
+            <table border="1">
+                <tr>
+                    <th colspan="5" style="text-align: center; background-color: #4db8ff; color: #000;">Tabla Comparativa Oficial</th>
+                </tr>
+                <tr>
+                    <th>Fabricante / Consola</th>
+                    <th>Precio de Lanzamiento</th>
+                    <th colspan="3">Características Técnicas y Servicios</th>
+                </tr>
+                <tr>
+                    <th style="background-color: #222;">Marca</th>
+                    <th>Precio</th>
+                    <th>Almacenamiento</th>
+                    <th>Servicio Online</th>
+                    <th>Exclusivos Destacados</th>
+                </tr>
+                <!-- Fila agrupada con ROWSPAN -->
+                <tr>
+                    <td rowspan="2" style="font-weight: bold; background-color: #113355; text-align: center;">Sony<br>PlayStation</td>
+                    <td>$499 (PS5)</td>
+                    <td>825 GB SSD</td>
+                    <td>PS Plus</td>
+                    <td>God of War, Spider-Man</td>
+                </tr>
+                <tr>
+                    <td>$399 (PS5 Digital)</td>
+                    <td>825 GB SSD</td>
+                    <td>PS Plus</td>
+                    <td>Horizon Forbidden West</td>
+                </tr>
+                <tr>
+                    <td rowspan="2" style="font-weight: bold; background-color: #115511; text-align: center;">Microsoft<br>Xbox</td>
+                    <td>$499 (Series X)</td>
+                    <td>1 TB SSD</td>
+                    <td>Xbox Game Pass</td>
+                    <td>Halo Infinite, Forza Horizon</td>
+                </tr>
+                <tr>
+                    <td>$299 (Series S)</td>
+                    <td>512 GB SSD</td>
+                    <td>Xbox Game Pass</td>
+                    <td>Starfield, Fable</td>
+                </tr>
+            </table>
+
+            <h3>Inventario de Hardware (Tabla Anidada)</h3>
+            <table border="1">
+                <tr>
+                    <th>Región</th>
+                    <th>Estado del Inventario</th>
+                </tr>
+                <tr>
+                    <td>Norteamérica</td>
+                    <td>
+                        <!-- TABLA ANIDADA -->
+                        <table border="1" style="margin: 0; background-color: #1e1e1e;">
+                            <tr>
+                                <th>Modelo</th>
+                                <th>Unidades</th>
+                            </tr>
+                            <tr>
+                                <td>PS5 Estándar</td>
+                                <td>1,200</td>
+                            </tr>
+                            <tr>
+                                <td>Xbox Series X</td>
+                                <td>850</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+            <hr style="border-color:#333; margin: 40px 0;">
+
+            <h2>Generador Dinámico de Catálogo (JavaScript)</h2>
+            <div style="background: #222; padding: 20px; border-radius: 8px;">
+                <label for="filas">Filas (Juegos): </label>
+                <input type="number" id="filas" value="3" min="1" max="10" style="padding: 5px; margin-right: 15px;">
+                
+                <label for="columnas">Columnas (Datos): </label>
+                <input type="number" id="columnas" value="4" min="1" max="6" style="padding: 5px; margin-right: 15px;">
+                
+                <button onclick="generarTablaDinamica()" style="background: #4db8ff; border: none; padding: 8px 15px; cursor: pointer; border-radius: 4px; font-weight: bold;">Generar tabla</button>
+                
+                <div id="contenedor-tabla-js" style="margin-top: 20px;"></div>
+            </div>
+
+            <hr style="border-color:#333; margin: 40px 0;">
+
+            <h2>Ecosistema Gamer (3 Paneles - iframes)</h2>
+            <div class="iframe-container">
+                <iframe src="https://es.wikipedia.org/wiki/PlayStation_5" class="iframe-panel" title="Info PlayStation"></iframe>
+                <iframe src="https://es.wikipedia.org/wiki/Xbox_Series_X_y_Series_S" class="iframe-panel" title="Info Xbox"></iframe>
+                <iframe src="https://es.wikipedia.org/wiki/Nintendo_Switch" class="iframe-panel" title="Info Nintendo"></iframe>
+            </div>
+
+        </div>
+
+        <!-- BARRA LATERAL -->
+        <div id="sidebar">
+            <h3>Top 10 Más Vendidos</h3>
+            <ol>
+                <li>Elden Ring</li>
+                <li>Hogwarts Legacy</li>
+                <li>The Legend of Zelda: Tears of the Kingdom</li>
+                <li>Baldur's Gate 3</li>
+                <li>Call of Duty: MW III</li>
+                <li>Cyberpunk 2077: Phantom Liberty</li>
+                <li>Super Mario Bros. Wonder</li>
+                <li>Resident Evil 4 Remake</li>
+                <li>EA Sports FC 24</li>
+                <li>Starfield</li>
+            </ol>
+
+            <h3 id="novedades" style="margin-top: 30px;">Novedades Recientes</h3>
+            <ul>
+                <li>Tekken 8
+                    <ul>
+                        <li>PS5</li>
+                        <li>Xbox Series X/S</li>
+                        <li>PC</li>
+                    </ul>
+                </li>
+                <li>Final Fantasy VII Rebirth
+                    <ul>
+                        <li>PS5 (Exclusivo temporal)</li>
+                    </ul>
+                </li>
+                <li>Dragon's Dogma 2
+                    <ul>
+                        <li>PS5</li>
+                        <li>Xbox</li>
+                        <li>PC</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3 style="margin-top: 30px;">Glosario Gamer</h3>
+            <dl>
+                <dt><strong>DLC</strong></dt>
+                <dd>Contenido Descargable. Expansiones o añadidos para un juego base.</dd>
+                
+                <dt><strong>Early Access</strong></dt>
+                <dd>Acceso anticipado. Permite jugar un título mientras aún está en desarrollo.</dd>
+                
+                <dt><strong>Cross-play</strong></dt>
+                <dd>Juego cruzado. Permite a jugadores de diferentes consolas jugar juntos online.</dd>
+                
+                <dt><strong>FPS</strong></dt>
+                <dd>First Person Shooter (juego de disparos) o Frames Per Second (rendimiento gráfico).</dd>
+                
+                <dt><strong>NPC</strong></dt>
+                <dd>Non-Playable Character. Personaje controlado por la inteligencia artificial del juego.</dd>
+                
+                <dt><strong>Loot Box</strong></dt>
+                <dd>Cajas de botín que otorgan objetos aleatorios virtuales dentro de un juego.</dd>
+            </dl>
+        </div>
+    </div>
+
+    <!-- PIE DE PÁGINA -->
+    <div id="footer">
+        <p>&copy; 2026 GameVault Store. Todos los derechos reservados.</p>
+        <p>Sitio construido exclusivamente con HTML5 y JavaScript.</p>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function generarTablaDinamica() {
+            const filas = parseInt(document.getElementById('filas').value) || 0;
+            const columnas = parseInt(document.getElementById('columnas').value) || 0;
+            const contenedor = document.getElementById('contenedor-tabla-js');
+            
+            if(filas <= 0 || columnas <= 0) {
+                contenedor.innerHTML = '<p style="color: red;">Por favor ingresa valores mayores a 0.</p>';
+                return;
+            }
+
+            let tablaHTML = '<table border="1">';
+            
+            // Generar Encabezados
+            tablaHTML += '<tr>';
+            for(let c = 1; c <= columnas; c++) {
+                tablaHTML += `<th contenteditable="true">Columna ${c}</th>`;
+            }
+            tablaHTML += '</tr>';
+
+            // Generar Filas y Celdas
+            for(let r = 1; r <= filas; r++) {
+                tablaHTML += '<tr>';
+                for(let c = 1; c <= columnas; c++) {
+                    tablaHTML += `<td contenteditable="true">Dato ${r}-${c}</td>`;
+                }
+                tablaHTML += '</tr>';
+            }
+            
+            tablaHTML += '</table>';
+            tablaHTML += '<p><em>Nota: Puedes hacer clic en las celdas para editar su contenido.</em></p>';
+            
+            contenedor.innerHTML = tablaHTML;
+        }
+    </script>
+</body>
+</html>
