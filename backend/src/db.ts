@@ -1,4 +1,5 @@
 import sqlite3 from 'sqlite3';
+import 'dotenv/config';
 
 const sqlite = sqlite3.verbose();
 
@@ -11,6 +12,9 @@ export const db = new sqlite.Database(DB_PATH, (error) => {
   }
   console.log('Conectado a SQLite');
 });
+
+// Espera hasta 5 segundos si la DB está bloqueada por otro proceso (ej: DB Browser)
+db.configure('busyTimeout', 5000);
 
 db.run(`
   CREATE TABLE IF NOT EXISTS juegos (
