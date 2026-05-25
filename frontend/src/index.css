@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+a { color: #4db8ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1, h2, h3 {
+  color: #e0e0e0;
+  margin-top: 0;
+}
+
+p { margin: 0 0 8px; }
+
+dl { margin: 0; }
+dt { margin-top: 10px; }
+dd { margin-left: 16px; color: #aaa; }
